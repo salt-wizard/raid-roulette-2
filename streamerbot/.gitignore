@@ -1,0 +1,5 @@
+# Editor directories and files
+bin/
+bin/*
+obj/
+obj/*
