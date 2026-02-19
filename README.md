@@ -3,9 +3,15 @@ Provides functionality for the chat to suggest other streamers to raid, and have
 
 Streamer.Bot is required to handle the logic between the custom UI and Twitch. It can be downloaded from [here](https://streamer.bot/downloads).
 
+![SQLite Tables](./db.png)
+
 ## Streamer.Bot
 ### Compiling Code
 All contents in the file CPHInline.cs needs to be copied into the Streamer.Bot application and compiled from within there.
+
+The required DLL files are as follows (they need to be in the Streamer.bot install directory):
+- System.Data.SQLite.dll
+- e_sqlite3.dll
 
 The following files need to be added as references for Streamer.Bot to compile successfully:
 - System.Data.SQLite.dll

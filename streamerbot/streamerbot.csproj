@@ -8,7 +8,7 @@
       <NoWarn>CS0114</NoWarn>
 
       <!-- Set the following directory with your Streamer.bot install location -->
-      <StreamerBotPath>/home/salt/streamerbot</StreamerBotPath>
+      <StreamerBotPath>/home/salt/.local/lib/streamer.bot</StreamerBotPath>
    </PropertyGroup>
    <ItemGroup>
       <!-- Automatically include in every CS file -->
@@ -33,9 +33,12 @@
       <!-- <Reference Include="$(StreamerBotPath)/**/*.dll" /> -->
    </ItemGroup>
    <ItemGroup>
+     <PackageReference Include="log4net" Version="3.2.0" />
+     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
      <PackageReference Include="SourceGear.sqlite3" Version="3.50.4.5" />
      <PackageReference Include="System.Data.SQLite" Version="2.0.2" />
      <PackageReference Include="System.Net.WebSockets.Client" Version="4.3.2" />
+     <PackageReference Include="System.Text.Json" Version="10.0.1" />
      <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
    </ItemGroup>
 </Project>
