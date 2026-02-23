@@ -23,4 +23,5 @@ export default interface RaidUserProps{
     subscriberMode: boolean
     emoteMode: boolean
     uniqueChatMode: boolean
+    showOffline: boolean
 }

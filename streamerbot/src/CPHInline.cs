@@ -435,6 +435,54 @@ public class CPHInline
     }
     
     /******************************************************************************************************************
+     * WEBSOCKET FUNCTIONS
+     ******************************************************************************************************************/
+    public bool InitRaidRouletteLogicWS()
+    {
+        _logger.Trace("ENTER InitRaidRouletteLogicWS");
+
+        int wssIdx = (int)args["wssIdx"];
+        string sessionId = (string)args["sessionId"];
+        CPH.SetGlobalVar("logicWssIdx", wssIdx, true);
+        CPH.SetGlobalVar("logicSessionId", sessionId, true);
+
+        _logger.Trace("EXIT InitRaidRouletteLogicWS");
+        return true;
+    }
+
+    public bool InitRaidRouletteUIWS()
+    {
+        _logger.Trace("ENTER InitRaidRouletteUIWS");
+
+        int wssIdx = (int)args["wssIdx"];
+        string sessionId = (string)args["sessionId"];
+        CPH.SetGlobalVar("uiWssIdx", wssIdx, true);
+        CPH.SetGlobalVar("uiSessionId", sessionId, true);
+
+        _logger.Trace("EXIT InitRaidRouletteUIWS");
+        return true;
+    }
+
+    public bool ReturnRaidTargets()
+    {
+        _logger.Trace("ENTER ReturnRaidTargets");
+
+        _logger.Trace("A request for the raiders has been made...");
+        string raidTargets = CPH.GetGlobalVar<string>("raidTargets", true);
+        int wssIdx = CPH.GetGlobalVar<int>("logicWssIdx", true);
+        string sessionId = CPH.GetGlobalVar<string>("logicSessionId", true);
+
+        JArray raidTargetsJA = JArray.Parse(raidTargets);
+        JObject jobj = new JObject();
+        jobj.Add("raidTargets", raidTargetsJA);
+
+        CPH.WebsocketCustomServerBroadcast(JsonConvert.SerializeObject(jobj), sessionId, wssIdx);
+
+        _logger.Trace("EXIT ReturnRaidTargets");
+        return true;
+    }
+
+    /******************************************************************************************************************
      * DATABASE FUNCTIONS
      ******************************************************************************************************************/
     private void InsertRaidTarget(RaidRouletteUserDetails user)

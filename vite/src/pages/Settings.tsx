@@ -1,22 +1,10 @@
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { Box, Tooltip } from '@mui/material';
-import BlackListedStreamers from './BlackListedStreamers';
 
 export default function Settings(){
     return (
         <>
             <h2>Blacklists</h2> 
-            <Box>
-                <Box sx={{display: 'flex', justifyContent: 'left', alignItems: 'center'}}>
-                    <h3>Streamers</h3>
-                    <Tooltip 
-                        title="Raid targets to exclude."
-                    >
-                        <HelpOutlineIcon fontSize="small"/>    
-                    </Tooltip>
-                </Box>
-                <BlackListedStreamers/>
-            </Box>
 
 
             
